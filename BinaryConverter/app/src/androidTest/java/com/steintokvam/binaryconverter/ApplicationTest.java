@@ -1,4 +1,4 @@
-package com.likenot.binaryconverter;
+package com.steintokvam.binaryconverter;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

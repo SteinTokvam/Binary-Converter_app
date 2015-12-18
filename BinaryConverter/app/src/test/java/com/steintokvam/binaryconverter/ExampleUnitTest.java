@@ -1,4 +1,4 @@
-package com.likenot.binaryconverter;
+package com.steintokvam.binaryconverter;
 
 import org.junit.Test;
 
