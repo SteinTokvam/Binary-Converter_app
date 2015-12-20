@@ -15,16 +15,13 @@ public class Converter extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_converter);
 
-        boolean standard;
-        standard = false;
-
         Intent intent = getIntent();
-        tekst = intent.getBooleanExtra("bool", standard);
-        if(tekst.equals("true")){
-            tekst = "1";
+        tekst = intent.getStringExtra("isBin");
+        if(tekst.equals("1")){
+            tekst = "BinToDec";
         }
         else {
-            tekst = "2";
+            tekst = "DecToBin";
         }
 
         mTest = (TextView)findViewById(R.id.textView);

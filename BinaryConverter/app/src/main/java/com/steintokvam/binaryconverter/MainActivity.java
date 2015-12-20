@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button mDecToBin;
     Button mBinToDec;
-    boolean decToBin;
+    String isBin = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         mDecToBin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                decToBin = true;
+                isBin = "";
                 nyIntent();
             }
         });
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         mBinToDec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                decToBin = false;
+                isBin = "1";
                 nyIntent();
             }
         });
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void nyIntent(){
         Intent intent = new Intent(this, Converter.class);
-        intent.putExtra("bool", decToBin);
+        intent.putExtra("isBin", isBin);
         startActivity(intent);
     }
 }
