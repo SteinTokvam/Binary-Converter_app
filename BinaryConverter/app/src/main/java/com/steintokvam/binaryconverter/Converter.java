@@ -15,8 +15,11 @@ public class Converter extends AppCompatActivity {
     EditText mNum;
     Button mConvert;
     String tekst = "";
+    String decimalString;
     String bin;
     int value = 0;
+    int currDeci;
+    String result;
     boolean isAllowed = false;
 
     @Override
@@ -48,6 +51,34 @@ public class Converter extends AppCompatActivity {
     }
 
     private void DecToBin() {
+        decimalString = mNum.getText().toString();
+        currDeci=Integer.parseInt(decimalString);
+        if(decimalString.equals("0")){
+            mResult.setText("0");
+        }
+
+        while(currDeci!=0){
+            if(currDeci%2==0){
+                currDeci=currDeci/2;
+                result+="0";
+            }
+            else{
+                result +="1";
+                currDeci= currDeci/2;
+            }
+        }
+        char[] turn = result.toCharArray();
+        for (int i = 0; i < turn.length / 2; i++) {
+            char temp = turn[i];
+            turn[i] = turn[turn.length - 1 - i];
+            turn[turn.length - 1 - i] = temp;
+        }
+        result = "";
+        for(int j = 0; j<turn.length;j++){
+            result+=turn[j];
+        }
+        System.out.println(result);
+        mResult.setText(result);
     }
 
     private void BinToDec() {
