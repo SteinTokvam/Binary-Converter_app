@@ -51,6 +51,7 @@ public class Converter extends AppCompatActivity {
     }
 
     private void DecToBin() {
+        result = "";
         decimalString = mNum.getText().toString();
         currDeci=Integer.parseInt(decimalString);
         if(decimalString.equals("0")){
