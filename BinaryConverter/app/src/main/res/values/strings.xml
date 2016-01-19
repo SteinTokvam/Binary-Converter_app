@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Binary Converter</string>
-    <string name="error_not_bin">Please use only binary numbers</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="bin_error_toast">Please input only 0\'s or 1\'s</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.steintokvam.binaryconverter;
+package steinpetter.com.binaryconverter;
 
 import org.junit.Test;
 
