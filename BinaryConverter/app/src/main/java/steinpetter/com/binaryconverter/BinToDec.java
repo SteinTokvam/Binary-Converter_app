@@ -59,6 +59,7 @@ public class BinToDec  extends Fragment{
                         }
                     }
                     mResult.setText(value + "");
+                    value = 0;
                 //}
             }
         });

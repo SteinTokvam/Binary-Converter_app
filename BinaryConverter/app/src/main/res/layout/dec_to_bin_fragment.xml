@@ -7,11 +7,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
+        android:hint="Enter a decimal number"
         android:ems="10"
         android:id="@+id/editNum"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="47dp" />
+        android:layout_marginTop="70dp" />
 
     <Button
         android:layout_width="match_parent"
@@ -22,12 +23,13 @@
         android:layout_centerHorizontal="true" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/txtResult"
         android:layout_marginTop="79dp"
         android:layout_below="@+id/btnConvert"
         android:layout_centerHorizontal="true"
-        android:textSize="50dp" />
+        android:textSize="50dp"
+        android:textAlignment="center"/>
 
 </RelativeLayout>
