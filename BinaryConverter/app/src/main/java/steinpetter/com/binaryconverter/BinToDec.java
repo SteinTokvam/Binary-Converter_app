@@ -20,6 +20,7 @@ public class BinToDec  extends Fragment{
     Button mConvert;
     String bin;
     int value = 0;
+    boolean isAllowed;
 
     public static BinToDec newInstance(){
         BinToDec fragment = new BinToDec();
@@ -37,30 +38,30 @@ public class BinToDec  extends Fragment{
             mNum = (EditText) rootView.findViewById(R.id.editNum);
             mConvert = (Button) rootView.findViewById(R.id.btnConvert);
 
-
         mConvert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                isAllowed = true;
                 bin = mNum.getText().toString();
                 char[] binChar = bin.toCharArray();
                 for (int j = 0; j < binChar.length; j++) {//validates input
-                    /*if (binChar[j] != '1' && binChar[j] != '0') {
+                    if (binChar[j] != '1' && binChar[j] != '0') {
                         isAllowed = false;
-                        Toast.makeText(this, R.getString(R.string.bin_error_toast), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getActivity(), R.string.bin_error_toast, Toast.LENGTH_LONG).show();
                         break;
-                    }*/
-                }
-                //if (isAllowed) {//only allowed input gets through
-                    for (int i = 0; i < binChar.length; i++) {
-                        if (binChar[i] == '1') {
-                            value += (Math.pow(2, (binChar.length + (-i - 1))));
-                        } else {
-                            value += 1 * 0;
-                        }
                     }
-                    mResult.setText(value + "");
-                    value = 0;
-                //}
+                }
+                if (isAllowed) {//only allowed input gets through
+                for (int i = 0; i < binChar.length; i++) {
+                    if (binChar[i] == '1') {
+                        value += (Math.pow(2, (binChar.length + (-i - 1))));
+                    } else {
+                        value += 1 * 0;
+                    }
+                }
+                mResult.setText(value + "");
+                value = 0;
+                }
             }
         });
 
