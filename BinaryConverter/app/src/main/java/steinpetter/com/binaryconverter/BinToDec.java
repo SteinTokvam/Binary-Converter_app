@@ -43,6 +43,10 @@ public class BinToDec  extends Fragment{
             public void onClick(View view) {
                 isAllowed = true;
                 bin = mNum.getText().toString();
+                if(mNum.getText().toString().equals("")){
+                    Toast.makeText(getActivity(), R.string.no_input, Toast.LENGTH_LONG).show();
+                    isAllowed=false;
+                }
                 char[] binChar = bin.toCharArray();
                 for (int j = 0; j < binChar.length; j++) {//validates input
                     if (binChar[j] != '1' && binChar[j] != '0') {

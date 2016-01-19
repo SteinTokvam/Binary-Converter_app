@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by SteinPetter on 19.01.2016.
@@ -20,6 +21,7 @@ public class DecToBin  extends Fragment{
     String decimalString;
     int currDeci;
     String result;
+    boolean isAllowed;
 
     public static DecToBin newInstance(){
         DecToBin fragment = new DecToBin();
@@ -40,34 +42,40 @@ public class DecToBin  extends Fragment{
                 @Override
                 public void onClick(View view) {
                     result = "";
-                    decimalString = mNum.getText().toString();
-                    currDeci=Integer.parseInt(decimalString);
-                    if(decimalString.equals("0")){
-                        mResult.setText("0");
+                    isAllowed = true;
+                    if (mNum.getText().toString().equals("")) {
+                        Toast.makeText(getActivity(), R.string.no_input, Toast.LENGTH_LONG).show();
+                        isAllowed = false;
                     }
+                    if (isAllowed) {
+                        decimalString = mNum.getText().toString();
+                        currDeci = Integer.parseInt(decimalString);
+                        if (decimalString.equals("0")) {
+                            mResult.setText("0");
+                        }
 
-                    while(currDeci!=0){
-                        if(currDeci%2==0){
-                            currDeci=currDeci/2;
-                            result+="0";
+                        while (currDeci != 0) {
+                            if (currDeci % 2 == 0) {
+                                currDeci = currDeci / 2;
+                                result += "0";
+                            } else {
+                                result += "1";
+                                currDeci = currDeci / 2;
+                            }
                         }
-                        else{
-                            result +="1";
-                            currDeci= currDeci/2;
+                        char[] turn = result.toCharArray();
+                        for (int i = 0; i < turn.length / 2; i++) {
+                            char temp = turn[i];
+                            turn[i] = turn[turn.length - 1 - i];
+                            turn[turn.length - 1 - i] = temp;
                         }
+                        result = "";
+                        for (int j = 0; j < turn.length; j++) {
+                            result += turn[j];
+                        }
+                        System.out.println(result);
+                        mResult.setText(result);
                     }
-                    char[] turn = result.toCharArray();
-                    for (int i = 0; i < turn.length / 2; i++) {
-                        char temp = turn[i];
-                        turn[i] = turn[turn.length - 1 - i];
-                        turn[turn.length - 1 - i] = temp;
-                    }
-                    result = "";
-                    for(int j = 0; j<turn.length;j++){
-                        result+=turn[j];
-                    }
-                    System.out.println(result);
-                    mResult.setText(result);
                 }
             });
 

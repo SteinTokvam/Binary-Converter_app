@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Binary Converter</string>
     <string name="bin_error_toast">Please input only 0\'s or 1\'s</string>
+    <string name="no_input">You must have something in your textfield</string>
 </resources>
