@@ -1,3 +1,5 @@
+<img align="right" src="https://raw.githubusercontent.com/SteinTokvam/Binary-Converter_app/Screens/Screen.jpg" height="400px">
+
 # Binary Converter
 [Last ned](https://play.google.com/store/apps/details?id=steintokvam.com.binaryconverter)
 
